@@ -34,15 +34,8 @@ blogRouter.get('/', async (request, response) => {
       author: body.author,
       url: body.url
     }
-    await Blog.findByIdAndUpdate(id, blog,
-      function(err, result){
-        if(err){
-          response.status(400).end()
-        }
-        else{
-          response.status(200).end()
-        }
-      })
-
+    await Blog.findByIdAndUpdate({_id:id}, blog).then(result=>{
+      response.status(200).json(result)
+    })
   })
   module.exports = blogRouter

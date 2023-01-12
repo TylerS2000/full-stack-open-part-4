@@ -1,6 +1,8 @@
 const mongoDB = require('../utils/config')
 const mongoose = require('mongoose')
 
+mongoose.set('strictQuery', true);
+
 const blogSchema = new mongoose.Schema({
     title:{type:String ,required:true},
     author: String,
