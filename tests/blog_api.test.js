@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
 const Blog = require('../models/blog')
+const User = require('../models/user')
 const api = supertest(app)
 
 let initialBlogs =
@@ -91,6 +92,15 @@ test("update test", async()=>{
         title: "React Updated"})
     .expect(200)
 })
+test("user creation short password", async()=>{
+    const testUser={
+        username:"test",
+        name:"test",
+        password:"ttt"}
+    await api
+    .post('/api/users')
+    .send(testUser)
+    })
 afterAll(() => {
     mongoose.connection.close()
 })
