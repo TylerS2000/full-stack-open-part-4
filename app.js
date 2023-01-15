@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const blogRouter = require('./controllers/blog')
 const userRouter = require('./controllers/user')
+const loginRouter = require('./controllers/login')
 const mongoose = require('mongoose')
 const mongoUrl = require('./utils/config')
 const { info, error } = require('./utils/logger')
@@ -16,6 +17,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter)
 app.use('/api/blogs', blogRouter)
 
 
