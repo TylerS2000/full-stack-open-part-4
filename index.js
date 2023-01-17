@@ -3,6 +3,6 @@ const http = require('http')
 
 const server = http.createServer(app)
 
-server.listen(4003, () => {
-    console.log(`Server running on port ${4003}`)
+server.listen(3003, () => {
+    console.log(`Server running on port ${3003}`)
 });
